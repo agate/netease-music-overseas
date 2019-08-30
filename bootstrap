@@ -1,0 +1,9 @@
+#!/bin/sh
+
+cat /templates/nginx.conf.tmpl | gomplate > /etc/nginx/conf.d/proxy.conf
+cat /templates/nginx.pac.tmpl | gomplate > /usr/share/nginx/html/proxy.pac
+
+tail -f /var/log/nginx/access.log &
+tail -f /var/log/nginx/access.log >&2 &
+
+nginx -g "daemon off;"

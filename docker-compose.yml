@@ -1,0 +1,9 @@
+version: '3'
+
+services:
+  netease-music-overseas:
+    image: agate/netease-music-overseas
+    build: .
+    environment:
+      - X_REAL_IP=123.123.123.123
+      - SERVER_IP=123.123.123.123
